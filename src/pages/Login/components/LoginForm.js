@@ -38,6 +38,7 @@ const LoginForm = () => {
       console.log('values: ', values)
       await AuthApi.login(values).then(res => {
         toast.success("Logged In Successfully");
+        
         setUser(res?.data?.data?.user);
 
         instance.defaults.headers.common['authorization'] = "Bearer" + " " + res?.data?.data?.token;

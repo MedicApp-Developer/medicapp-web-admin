@@ -1,18 +1,19 @@
-import React from 'react'
-import DashboardLayout from '../../../layout/DashboardLayout';
+import React from "react";
+import DashboardLayout from "../../../layout/DashboardLayout";
+import Scheduler from "./schedular";
 
 function Schedule() {
-    return (
-        <div>
-            <DashboardLayout>
-                <div className="row align-items-center add-list">
-                    <div className="col-6">
-                        <h4>Schedule</h4>
-                    </div>
-                </div>
-            </DashboardLayout>
+  return (
+    <div>
+      <DashboardLayout>
+        <div className="row align-items-center add-list">
+          <div className="col-12">
+            <Scheduler />
+          </div>
         </div>
-    )
+      </DashboardLayout>
+    </div>
+  );
 }
 
-export default Schedule
+export default Schedule;

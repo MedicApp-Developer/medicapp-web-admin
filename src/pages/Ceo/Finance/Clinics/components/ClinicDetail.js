@@ -4,6 +4,7 @@ import HospitalApi from '../../../../../api/Hospital';
 import COPY_ICON from '../../../../../assets/images/copy.png'
 import { href } from '../../../../../constants/extra';
 import { saveAs } from 'file-saver'
+import ArchiveApi from '../../../../../api/Archive';
 
 function ClinicDetail({ hospital: id, selectedTab, setSelectedTab }) {
 
@@ -32,10 +33,36 @@ function ClinicDetail({ hospital: id, selectedTab, setSelectedTab }) {
     HospitalApi.getHospitalFinanceReport(data).then(res => {
       const pdfBlob = new Blob([res.data], { type: 'application/pdf' })
       saveAs(pdfBlob, 'Appointment Slip.pdf')
-    })
+    });
     HospitalApi.getHospitalFinanceStatistics(data).then(res => {
       setAppointments(res.data.data);
     })
+  }
+
+  const archivePdf = () => {
+    if (!fromDate || !toDate) {
+      toast.error("Select Start date and End date first");
+      return false;
+    }
+
+    const data = {
+      hospitalId: id,
+      fromDate,
+      toDate
+    }
+    HospitalApi.getHospitalFinanceReport(data).then(res => {
+      const pdfFile = new File([res.data], "name.pdf")
+      const formData = new FormData()
+      formData.append("url", pdfFile);
+      formData.append("from", fromDate);
+      formData.append("to", toDate);
+      formData.append("pageNumber", Math.floor(Math.random() * 1000000));
+      formData.append("hospitalId", id);
+      
+      ArchiveApi.createArchive(formData).then(() => {
+        toast.success("Successfully archived PDF")
+      });
+    });
   }
 
   const copyToClipboard = (text) => {
@@ -155,7 +182,8 @@ function ClinicDetail({ hospital: id, selectedTab, setSelectedTab }) {
         </div>
         <div className="form-group text-center">
           <button type="button" className="btn btn-secondary mt-2 mr-2" onClick={() => copyToClipboard(hospital.name + " " + hospital.tradeLicenseNo + " " + hospital.phoneNo + " " + hospital.email)}>Copy All</button>
-          <button type="button" className="btn btn-success mt-2 ml-2" onClick={downloadReport}>Open in PDF</button>
+          <button type="button" className="btn btn-success mt-2 ml-2" onClick={downloadReport}>Download as PDF</button>
+          <button type="button" className="btn btn-success mt-2 ml-2" onClick={archivePdf}>Archive PDF</button>
           <button type="button" className="btn btn-primary mt-2 ml-2" onClick={downloadFinanceData}>Get Appointment Finance</button>
           <button type="button" className="btn btn-info mt-2 ml-2" onClick={() => { window.open(`${hospital.tradeLicenseFile}`, "_blank") }}>Download Trade License</button>
         </div>

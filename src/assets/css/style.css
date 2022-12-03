@@ -2021,3 +2021,95 @@ footer .media i {
 	margin-bottom: 20px;
 	font-size: 14px;
 }
+
+/* todo list desingning */
+.border-outer {
+	border: 4px solid #407EBF;
+	border-radius: 30px;
+	padding-inline: 30px;
+	width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0.5);
+	height: 550px;
+	overflow-y: auto;
+}
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+  }
+  
+  .sticky + .content {
+	padding-top: 102px;
+  }
+
+/* hide scrollbar for chrome, safari and opera */
+.border-outer::-webkit-scrollbar {
+  display: none;
+}
+.todo-head-text{
+	font-weight: 500;
+	margin-top: 20px;
+}
+.item-content-outer {
+	/* align-items: center; */
+	/* justify-content: center; */
+	align-content: center;
+	/* background-color: red; */
+	/* height: 100%; */
+}
+.todo-item {
+	height: 80px;
+	border-radius: 30px;
+	margin-block: 10px;
+
+	/* width: 100%; */
+}
+.todo-item-even {
+	background: rgba(64, 126, 191, 0.6);
+}
+.todo-item-odd {
+	background: #407EBF;
+}
+.item-text{
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 15px;
+	color: #FFFFFF
+}
+.item-text-desc{
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 15px;
+	color: #FFFFFF
+}
+
+/* checkinout list  */
+.item-check-in-out {
+	background: #C4C4C4
+}
+
+/* TOOL TIP  */
+.tooltip:after {
+	content: "";
+	position:absolute;
+	
+	/* position tooltip correctly */
+	left:100%;
+	margin-left:-5px;
+   
+	/* vertically center */
+	top:50%;
+	transform:translateY(-50%);
+   
+	/* the arrow */
+	border:10px solid #000;
+	border-color: transparent black transparent transparent;
+	
+	display:none;
+  }
+  .tooltip:hover:before, .tooltip:hover:after {
+	display:block;
+  }

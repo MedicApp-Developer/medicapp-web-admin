@@ -12,6 +12,7 @@ import './assets/css/style.css'
 import PublicRoute from './ProtectedRoutes/PublicRoute'
 import CEORouter from './pages/Ceo';
 import EmployeeRouter from './pages/Employee';
+import FinanceRouter from './pages/Finance';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Switch>
             <Route path="/ceo" component={CEORouter} />
             <Route path="/employee" component={EmployeeRouter} />
+            <Route path="/finance" component={FinanceRouter} />
             <PublicRoute exact path="/login" component={Login} />
             <Redirect to="/ceo" />
           </Switch>

@@ -25,7 +25,7 @@ function ListClinics({ submitHandler, search, setSearch, hospitals, selectedTab,
           <h4 class="mb-4">{selectedTab}</h4>
             {hospitals?.length === 0 && (
               <div style={{ textAlign: "center" }}>
-                There are no users currently.
+                There are no clinics currently.
               </div>
             )}
 						{hospitals?.map((hospital, index) => (
