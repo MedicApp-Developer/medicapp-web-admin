@@ -21,17 +21,9 @@ const TodoItem = ({ item, index }) => {
       <div className="col-3 item-content-outer item-text-desc">
         {item.description && (
           <>
-            <span data-tip data-for="registerTip">
+            <span data-tip data-for="registerTip" title={item.description}>
               {`${item.description ?? ""}`.slice(0, 10)}...
             </span>
-            <ReactTooltip
-              id="registerTip"
-              place="top"
-              effect="solid"
-              multiline={true}
-            >
-              {item.description}
-            </ReactTooltip>
           </>
         )}
       </div>

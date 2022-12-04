@@ -76,11 +76,11 @@ function Archives() {
                         <div className='row'>
                             <div className='col-md-2'>
                                
-                                    <label htmlFor='searchText'> Page Number </label>
+                                    <label htmlFor='searchText'> File Number </label>
                                     <input
                                         id="searchText"
                                         className='form-control'
-                                        placeholder='Page Number'
+                                        placeholder='File Number'
                                         type='text'
                                         name='search'
                                         value={search}
@@ -136,7 +136,7 @@ function Archives() {
                                             <div class="col-md-12 col-lg-8">
                                                 <ul>
                                                     <li>
-                                                        <span style={{ fontWeight: 'bold' }}>PageNo: </span> {archive?.pageNumber}
+                                                        <span style={{ fontWeight: 'bold' }}>File No: </span> {archive?.pageNumber}
                                                     </li>
                                                     <li>
                                                         <span style={{ fontWeight: 'bold' }}>From: </span> {archive?.from}

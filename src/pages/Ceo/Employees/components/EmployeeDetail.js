@@ -80,7 +80,7 @@ function EmployeeDetail() {
                       <img src={COPY_ICON} style={{ height: '1.1rem', width: '1.1rem' }} />
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value={employee?.name} />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" disabled placeholder="Email" value={employee?.name} />
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ function EmployeeDetail() {
                       <img src={COPY_ICON} style={{ height: '1.1rem', width: '1.1rem' }} />
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value={employee?.email} />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" disabled placeholder="Email" value={employee?.email} />
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ function EmployeeDetail() {
                       <img src={COPY_ICON} style={{ height: '1.1rem', width: '1.1rem' }} />
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value={employee?.department} />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" disabled placeholder="Email" value={employee?.department} />
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@ function EmployeeDetail() {
                       <img src={COPY_ICON} style={{ height: '1.1rem', width: '1.1rem' }} />
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value={employee?.passportNo} />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" disabled placeholder="Email" value={employee?.passportNo} />
                 </div>
               </div>
             </div>
@@ -146,7 +146,7 @@ function EmployeeDetail() {
                       <img src={COPY_ICON} style={{ height: '1.1rem', width: '1.1rem' }} />
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value={employee?.emiratesId} />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" disabled placeholder="Email" value={employee?.emiratesId} />
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ function EmployeeDetail() {
                       <img src={COPY_ICON} style={{ height: '1.1rem', width: '1.1rem' }} />
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value={employee?.salary} />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" disabled placeholder="Email" value={employee?.salary} />
                 </div>
               </div>
             </div>
@@ -184,7 +184,7 @@ function EmployeeDetail() {
                       <img src={COPY_ICON} style={{ height: '1.1rem', width: '1.1rem' }} />
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" value={employee?.workEmail} />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" disabled placeholder="Email" value={employee?.workEmail} />
                 </div>
               </div>
             </div>

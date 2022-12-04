@@ -1,22 +1,23 @@
 import React from "react";
 import { toast } from "react-toastify";
+import TodoApi from "../../../api/Todo";
 // import SlotApi from "../../../../api/Slots/index";
 
 function DeleteSlot({ selectedSlot, slotDeletedCallback }) {
   const deleteSlotHandler = () => {
-    console.log(selectedSlot);
+    console.log("delete => ", selectedSlot);
 
-    // SlotApi.deleteSlot(selectedSlot._id)
-    //   .then((res) => {
-    //     if (res.status === 200 && res.data.data) {
-    //       toast.success("Slot delete successfully");
-    //       slotDeletedCallback(selectedSlot);
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     toast.error("Failed to delete slot");
-    //     console.log(err);
-    //   });
+    TodoApi.deleteTodo(selectedSlot._id)
+      .then((res) => {
+        if (res.status === 200 && res.data.data) {
+          toast.success("Todo delete successfully");
+          slotDeletedCallback(selectedSlot);
+        }
+      })
+      .catch((err) => {
+        toast.error("Failed to delete todo");
+        console.log(err);
+      });
   };
 
   return (

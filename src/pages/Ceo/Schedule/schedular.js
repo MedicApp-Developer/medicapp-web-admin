@@ -109,12 +109,8 @@ function Scheduler() {
   }
 
   const onSelectEvent = (slot) => {
-    if (slot.status !== "BOOKED") {
-      if (moment(slot.start).isAfter()) {
-        setSelectedSlot(slot);
-        deleteSlotRef.current.click();
-      }
-    }
+    setSelectedSlot(slot);
+    deleteSlotRef.current.click();
   };
 
   const handleSlotDeleteCallback = (deletedSlot) => {

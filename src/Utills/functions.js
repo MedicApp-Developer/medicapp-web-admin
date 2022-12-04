@@ -57,7 +57,7 @@ export function getTotalDaysBetweenTwoDays(firstDate, secondDate) {
 
 export const monthYearToMonthNameDate = (date) => {
   return `${MONTHSLIST[parseInt(`${date}`.split("-")[1]) - 1]} ${
-    moment(new Date(`${date}-1`)).format("MM/YYYY") ?? ""
+    moment(new Date(`${date}-1`)).format("YYYY") ?? ""
   }`;
 };
 
