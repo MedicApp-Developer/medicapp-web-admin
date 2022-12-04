@@ -101,7 +101,9 @@ function CreateEmployee({ setEmployeePage, employees }) {
                 <option value="">Department</option>
                 <option value="FINANCE">FINANCE</option>
                 <option value="HR">HR</option>
-                <option value="REGULAR EMPLOYEE">REGULAR EMPLOYEE</option>
+                <option value="IT">IT</option>
+                <option value="SALES">SALES</option>
+                <option value="OPERATIONS">OPERATIONS</option>
               </SelectInput>
             </div>
           </div>

@@ -53,9 +53,11 @@ function ListCeoEmployees({ setDepartment, clearSearchResults, getEmployees, emp
         <form class="form-inline search-form d-none d-lg-block">
           <select value={department} onChange={(filterByDepartment)} className={"form-control"} style={{ height: "50px", marginTop: '1rem' }}>
             <option value="">Department</option>
-            <option value="FINANCE">FINANCE</option>
-            <option value="HR">HR</option>
-            <option value="REGULAR EMPLOYEE">REGULAR EMPLOYEE</option>
+                <option value="FINANCE">FINANCE</option>
+                <option value="HR">HR</option>
+                <option value="IT">IT</option>
+                <option value="SALES">SALES</option>
+                <option value="OPERATIONS">OPERATIONS</option>
           </select>
         </form>
       </div>

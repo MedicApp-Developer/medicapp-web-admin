@@ -9,4 +9,14 @@ export const FinanceRoutes = [
         icon: "icon-qr-code",
         route: "/finance/add",
     },
+    {
+        name: "Employee Requests",
+        icon: "icon-hospital",
+        route: "/finance/requests"
+    },
+    {
+        name: "Check In/Out",
+        icon: "icon-qr-code",
+        route: "/finance/check-in-out",
+    }
 ]

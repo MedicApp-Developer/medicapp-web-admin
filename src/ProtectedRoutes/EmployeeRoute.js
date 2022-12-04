@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { EMPLOYEE } from '../constants/Roles';
+import { OPERATIONS, HR, IT, SALES } from '../constants/Roles';
 import { RootContext } from '../contextApi/index';
 
 export default ({ children, ...routeProps }) => {
@@ -10,7 +10,7 @@ export default ({ children, ...routeProps }) => {
   return (
     <Route
       {...routeProps}
-      render={() => (user?.role === EMPLOYEE ?
+      render={() => (user?.role === OPERATIONS || HR || IT || SALES ?
         (
           children
         ) :

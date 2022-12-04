@@ -46,7 +46,6 @@ const LoginForm = () => {
         setSelectedNav(selectNav(res?.data?.data?.user?.role));
         localStorage.setItem("auth", res?.data?.data?.token);
         localStorage.setItem("user", JSON.stringify(res?.data?.data?.user));
-        localStorage.setItem("familyMembers", JSON.stringify(res?.data?.data?.familyMembers));
         
         history.push(redirectTo(res?.data?.data?.user?.role));
       }).catch(err => {

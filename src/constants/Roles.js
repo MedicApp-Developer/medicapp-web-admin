@@ -1,6 +1,9 @@
 export const CEO = "CEO";
 export const FINANCE = "FINANCE";
-export const EMPLOYEE = "REGULAR EMPLOYEE";
+export const HR = "HR";
+export const IT = "IT";
+export const SALES = "SALES";
+export const OPERATIONS = "OPERATIONS";
 
 // GENDER CONSTANTS
 export const MALE = "MALE";
