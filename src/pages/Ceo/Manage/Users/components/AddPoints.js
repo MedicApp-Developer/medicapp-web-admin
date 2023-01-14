@@ -24,7 +24,7 @@ function AddPoints({ patient, setPatient }) {
           email: "ceo@medicappae.com",
           password: ceoPassword
         }).then(res => {
-          PatientApi.updatePatient(patient._id, { ...patient, points: parseInt(patient.points) + parseInt(addedPoints)}).then(res => {
+          PatientApi.updatePatient(patient._id, { ...patient, addedPoints, updatePoints: true, points: parseInt(patient.points) + parseInt(addedPoints)}).then(res => {
             setPatient({ ...patient, points: parseInt(patient.points) + parseInt(addedPoints) });
             toast.success("Points added successfully");
           }).catch(err => {
