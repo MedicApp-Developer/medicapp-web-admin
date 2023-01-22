@@ -6,6 +6,7 @@ import SelectInput from '../../../../../components/forms/SelectInput'
 import { toast } from 'react-toastify'
 import EmployeeApi from '../../../../../api/Employee'
 import { connect } from 'react-redux'
+import NumberFormatInput from '../../../../../components/forms/NumberFormat'
 
 function CreateEmployee({ setEmployeePage, employees }) {
   const [employeeAgreement, setEmployeeAgreement] = useState(undefined);
@@ -33,7 +34,7 @@ function CreateEmployee({ setEmployeePage, employees }) {
         department: Yup.string().required('Required'),
         salary: Yup.number().required('Required'),
         passportNo: Yup.number().required('Required'),
-        emiratesId: Yup.number().required('Required'),
+        emiratesId: Yup.string().required('Required'),
       })}
       onSubmit={(values, { resetForm }) => {
         const isSaveForm = Object.values(selectedEmployee).length === 0;
@@ -50,7 +51,7 @@ function CreateEmployee({ setEmployeePage, employees }) {
           toast.error("Please upload your Visa Pdf");
           return false;
         }
-        
+
         const formData = new FormData()
         formData.append("name", values.name);
         formData.append("email", values.email);
@@ -124,7 +125,12 @@ function CreateEmployee({ setEmployeePage, employees }) {
           </div>
           <div className="col-md-6">
             <div className="form-group">
-              <TextInput type="text" name="emiratesId" placeholder="Emirates Id" />
+              {/* <TextInput type="text" name="emiratesId" placeholder="Emirates Id" /> */}
+              <NumberFormatInput
+                format={"###-####-#######-#"}
+                mask={"-"}
+                name="emiratesId"
+                placeholder={"Emirates ID"} />
             </div>
           </div>
         </div>
@@ -139,7 +145,7 @@ function CreateEmployee({ setEmployeePage, employees }) {
                   </span>
                 )}
               </label>
-              <input type="file" className="form-control" onChange={(e) => { setProfilePic(e.target.files[0]) }} />
+              <input type="file" className="form-control" accept="image/*" onChange={(e) => { setProfilePic(e.target.files[0]) }} />
             </div>
           </div>
           <div className="col-md-6">
@@ -152,7 +158,7 @@ function CreateEmployee({ setEmployeePage, employees }) {
                   </span>
                 )}
               </label>
-              <input type="file" className="form-control" onChange={(e) => { setEmployeeAgreement(e.target.files[0]) }} />
+              <input type="file" className="form-control" accept='application/pdf' onChange={(e) => { setEmployeeAgreement(e.target.files[0]) }} />
             </div>
           </div>
           <div className="col-md-6">
@@ -165,7 +171,7 @@ function CreateEmployee({ setEmployeePage, employees }) {
                   </span>
                 )}
               </label>
-              <input type="file" className="form-control" onChange={(e) => { setPassportPdf(e.target.files[0]) }} />
+              <input type="file" className="form-control" accept='application/pdf' onChange={(e) => { setPassportPdf(e.target.files[0]) }} />
             </div>
           </div>
           <div className="col-md-6">
@@ -178,7 +184,7 @@ function CreateEmployee({ setEmployeePage, employees }) {
                   </span>
                 )}
               </label>
-              <input type="file" className="form-control" onChange={(e) => { setEmiratesIdPdf(e.target.files[0]) }} />
+              <input type="file" className="form-control" accept='application/pdf' onChange={(e) => { setEmiratesIdPdf(e.target.files[0]) }} />
             </div>
           </div>
           <div className="col-md-6">
@@ -191,14 +197,14 @@ function CreateEmployee({ setEmployeePage, employees }) {
                   </span>
                 )}
               </label>
-              <input type="file" className="form-control" onChange={(e) => { setVisaPdf(e.target.files[0]) }} />
+              <input type="file" className="form-control" accept='application/pdf' onChange={(e) => { setVisaPdf(e.target.files[0]) }} />
             </div>
           </div>
         </div>
         <div className="form-group text-center mb-0 mt-3">
           <button type="button" className="btn btn-secondary" style={{ marginRight: "1rem" }} onClick={() => { setEmployeePage("list") }}>Cancel</button>
           <button type="submit" className="btn btn-primary">
-          {Object.keys(selectedEmployee).length > 0 ? "Update" : "Confirm New Employee"}
+            {Object.keys(selectedEmployee).length > 0 ? "Update" : "Confirm New Employee"}
           </button>
         </div>
       </Form>

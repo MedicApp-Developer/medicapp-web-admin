@@ -34,8 +34,6 @@ function Archives() {
     }
 
     const filterArchive = () => {
-        console.log("FROM => ", from)
-        console.log("TO => ", to)
         if (!(from && to)) {
             toast.error("Please select from and to date first");
         } else {
@@ -59,6 +57,10 @@ function Archives() {
         ArchiveApi.getArchives().then(res => {
             setArchives(res.data.data);
         })
+    }
+
+    const viewHandler = (archive) => {
+        window.open(archive.url, '_blank');
     }
 
     return (
@@ -133,7 +135,7 @@ function Archives() {
                                 <div class="card lab-result mb-2" style={{ border: "1px solid lightgray", borderRadius: '1rem' }}>
                                     <div class="card-body py-2">
                                         <div class="row align-items-center">
-                                            <div class="col-md-12 col-lg-8">
+                                            <div class="col-md-12 col-lg-9">
                                                 <ul>
                                                     <li>
                                                         <span style={{ fontWeight: 'bold' }}>File No: </span> {archive?.pageNumber}
@@ -152,8 +154,11 @@ function Archives() {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="col-md-12 col-lg-4 text-center text-md-right mt-3 mt-md-0">
+                                            <div class="col-md-12 col-lg-1 text-center text-md-right mt-3 mt-md-0">
                                                 <button type="button" class="btn btn-danger" onClick={() => deleteArchiveHandler(archive)}>DELETE</button>
+                                            </div>
+                                            <div class="col-md-12 col-lg-1 text-center text-md-right mt-3 mt-md-0" style={{ marginLeft: "3rem" }}>
+                                                <button type="button" class="btn btn-primary" onClick={viewHandler.bind(this, archive)}>VIEW</button>
                                             </div>
                                         </div>
                                     </div>
